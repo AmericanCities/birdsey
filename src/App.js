@@ -1,12 +1,14 @@
 import CallOut from "./components/HomeIntro/CallOut";
 import HomeIntro from "./components/HomeIntro/HomeIntro";
-import PlayerCard from "./components/JerseyAdmin/PlayerCard";
 import MainHeader from "./components/layout/MainHeader";
 import ImageCard from "./components/HomeIntro/ImageCard";
 import Login from "./components/auth/Login";
+import {useSelector} from 'react-redux';
+import JerseyForm from "./components/JerseyAdmin/JerseyForm";
+import ActiveJerseyList from "./components/JerseyAdmin/ActiveJerseyList";
 
 function App() {
-  const isLoggedIn = false;
+  const isLoggedIn = useSelector((state)=>state.auth.isAuthenticated);
 
   return (
     <div className="App container">
@@ -31,8 +33,8 @@ function App() {
 
       {isLoggedIn && (
         <div>
-          <PlayerCard />
-          <PlayerCard />
+          <JerseyForm />
+          <ActiveJerseyList/>
         </div>
       )}
     </div>

@@ -1,13 +1,6 @@
 import {createStore, applyMiddleware} from 'redux';
 import createSagaMiddleware from '@redux-saga/core'; 
-import {combineReducers} from 'redux';
-import UsersReducer from './reducers/users';
-
-
-
-const reducers = combineReducers({
-	users: UsersReducer
-});
+import reducers from './reducers';
 
 
 export const sagaMiddleware = createSagaMiddleware();

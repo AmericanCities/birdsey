@@ -1,9 +1,12 @@
 import {combineReducers} from 'redux';
-import UsersReducer from './users';
+import authReducer from './auth';
+import playersReducer from './players';
 
 
 const reducers = combineReducers({
-	users: UsersReducer
+	auth: authReducer,
+	players: playersReducer,
+
 });
 
 export default reducers;

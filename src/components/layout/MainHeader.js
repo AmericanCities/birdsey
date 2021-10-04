@@ -1,12 +1,16 @@
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
-
 import eaglesLogo from "../../images/eaglesLogo.png";
+import { useDispatch, useSelector } from "react-redux";
 
 const MainHeader = (props) => {
   
-  const isLoggedIn = false;
+  const isLoggedIn = useSelector((state)=>state.auth.isAuthenticated);
+  const dispatch = useDispatch();
 
+  const logoutHandler =() => {
+    dispatch({type: "LOGOUT"})
+  } 
 
   return (
     <Navbar bg="dark" variant="dark">
@@ -25,7 +29,7 @@ const MainHeader = (props) => {
         <Navbar.Collapse className="justify-content-end">
           
           {isLoggedIn && <Navbar.Text>
-            <a href="#login">logout</a>
+            <span onClick={logoutHandler}>logout</span>
           </Navbar.Text> }
         </Navbar.Collapse>
       </Container>
